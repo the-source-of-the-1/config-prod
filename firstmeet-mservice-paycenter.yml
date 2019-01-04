@@ -1,0 +1,116 @@
+server:
+  ssl:
+    key-store: classpath:https_keystore.p12
+    key-store-password: chujian
+    keyStoreType: PKCS12
+    keyAlias: 1
+  port: 8443
+  http-port: 8080
+  servlet:
+    application-display-name: firstmeet-msservice-paycenter
+    contextPath: /
+  tomcat:
+    basedir: "./"
+    accesslog:
+      enabled: true
+      directory: "./logs/access-log"
+    customized.enable: true
+    accept-count: 200
+    max-threads: 200
+    min-spare-threads: 50
+    max-connections: 10000
+
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    platform: mysql
+    url: jdbc:mysql://10.201.0.8:3306/pay_center?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: xqKKZ5xS%m!V^2pc
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    logSlowSql: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+  jackson:
+    serialization:
+      indent_output: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+paycenter.host.url: 'http://127.0.0.1:8080'
+
+bluepay:
+  #cashcard.url: 'http://th.webpay.bluepay.tech/bluepay/cashcard/index.php'
+  cashcard.url: 'http://test.webpay.bluepay.tech/bluepay/cashcard/index.php'
+  order.checkOn: true
+  #querytrans.detail.url: 'http://th.api.bluepay.tech/charge/service/queryTransDetail'
+  querytrans.detail.url: 'http://120.76.101.146:8160/thaiCharge/service/queryTransDetail'
+  encrypt.key: 'e44865ae64739e08'
+
+googlepay:
+  order.checkOn: true
+  querytrans.detail.url: 'https://www.googleapis.com/androidpublisher/v3/applications'
+  encrypt.key: ''
+
+applepay:
+  order.checkOn: true
+  querytrans.detail.url: 'https://sandbox.itunes.apple.com/verifyReceipt'
+  encrypt.key: ''
+
+order.get.url: '${paycenter.host.url}/orders/{order_id}'
+orders.get.url: '${paycenter.host.url}/orders/ids'
+
+order.get.urls:
+  channels:
+    bluepay : '${paycenter.host.url}/bluepay/callbacks/{order_id}'
+    googlepay : '${paycenter.host.url}/googlepay/callbacks/{order_id}'
+    applepay : '${paycenter.host.url}/applepay/callbacks/{order_id}'
+
+orders.get.urls:
+  channels:
+    bluepay : '${paycenter.host.url}/bluepay/callbacks/orders/ids'
+    googlepay : '${paycenter.host.url}/googlepay/callbacks/orders/ids'
+    applepay : '${paycenter.host.url}/applepay/callbacks/orders/ids'
+
+shoppe.variants.get.url: 'http://127.0.0.1:8083/shoppes/{shoppe_id}/variants'
+
+order.notify.shipping:
+  count: 6
+  interval: 5
+  url: '${paycenter.host.url}/shipping/deliverynotes/notify'
+
+gameserver.shipping.clients:
+  default:
+    url: 'http://127.0.0.1:8084/shipping/gameserver/notify'
+    count: 6
+    interval: 5000
+
+chujian:
+   token:
+     key:
+       public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
+
+chujian.uid.enable: true
+
+
