@@ -4,8 +4,8 @@ server:
     key-store-password: chujian
     keyStoreType: PKCS12
     keyAlias: 1
-  port: 8443
-  http-port: 8080
+  port: 8446
+  http-port: 8082
   servlet:
     application-display-name: firstmeet-mservice-mta-track
     contextPath: /
@@ -15,11 +15,11 @@ server:
       enabled: true
       directory: "./logs/access-log"
     customized.enable: true
-    accept-count: 100
-    max-threads: 1500
-    min-spare-threads: 500
-    max-connections: 10000
-    connection-timeout: 2000
+    customized.accept-count: 100
+    customized.max-threads: 200
+    customized.min-spare-threads: 25
+    customized.max-connections: 10000
+    customized.connection-timeout: 2000
     manager.enable: false
     manager.context-path: '/data/webapps/manager'
 
