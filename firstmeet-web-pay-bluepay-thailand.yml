@@ -7,7 +7,7 @@ server:
   port: 8449
   http-port: 8089
   servlet:
-    application-display-name: firstmeet-web-pay-thailand
+    application-display-name: firstmeet-web-pay-bluepay
     contextPath: /
     session:
       timeout: -1
