@@ -1,0 +1,78 @@
+server:
+  ssl:
+    key-store: classpath:https_keystore.p12
+    key-store-password: chujian
+    keyStoreType: PKCS12
+    keyAlias: 1
+  port: 8443
+  http-port: 8080
+  servlet:
+    application-display-name: firstmeet-web-pay-thailand
+    contextPath: /
+    session:
+      timeout: PT1H
+  tomcat:
+    basedir: "./"
+    accesslog:
+      enabled: true
+      directory: "./logs/access-log"
+    customized.enable: true
+    accept-count: 100
+    max-threads: 1500
+    min-spare-threads: 500
+    max-connections: 10000
+    connection-timeout: 2000
+
+facebook.appId: '397359414136334'
+facebook.appSecret: '99af8ada4d54aa411af6f41d2c85f996'
+facebook.callbackUrl: ''
+
+chujian.clientId: 'app'
+chujian.clientSecret: '123456'
+
+chujian.usercenter.url : 'http://127.0.0.1:8080'
+chujian.paycenter.url: 'http://127.0.0.1:8081'
+chujian.gameinfocenter.url: 'http://api.tg.16801.com:8848'
+
+chujian.user.me.url: '${chujian.usercenter.url}/user/me'
+chujian.user.auth.url : '${chujian.usercenter.url}/oauth/token'
+facebook.user.auth.url: '${chujian.usercenter.url}/auth/v2/token4facebook'
+
+gameinfo.platform.list.url: '${chujian.gameinfocenter.url}/platformlist'
+gameinfo.server.list.url: '${chujian.gameinfocenter.url}/serverlist'
+gameinfo.char.list.url: '${chujian.gameinfocenter.url}/charlist'
+gameinfo.char.list.mock : true
+
+chujian.checkout.url: '${chujian.paycenter.url}/checkout'
+chujian.bluepay.callback.url: '${chujian.paycenter.url}/bluepay/callbacks'
+
+chujian.order.list.url: '${chujian.paycenter.url}/query/orders'
+
+#bluepay.cashcard.url: 'http://th.webpay.bluepay.tech/bluepay/cashcard/index.php'
+bluepay.cashcard.url: 'http://test.webpay.bluepay.tech/bluepay/cashcard/index.php'
+bluepay.product.id: '1999'
+bluepay.shoppe.id: 'app_bluepay'
+
+spring.thymeleaf:
+  prefix: classpath:/templates/
+  suffix: .html
+  mode: HTML5
+  encoding: UTF-8
+  #热部署文件，页面不产生缓存，及时更新, 在开发阶段设置为false
+  cache: false
+
+spring.resources.chain.strategy.content.enabled: true
+spring.resources.chain.strategy.content.paths: /**
+
+spring:
+  jackson:
+    serialization:
+      indent_output: true
+  messages:
+    basename: i18n.messages
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

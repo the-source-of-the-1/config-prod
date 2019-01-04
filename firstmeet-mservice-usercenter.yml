@@ -1,0 +1,57 @@
+spring:
+  datasource:
+    url: jdbc:mysql://10.201.0.8:3306/user_center?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: xqKKZ5xS%m!V^2pc
+    hikari:
+      minimum-idle: 50
+      maximum-pool-size: 500
+      connection-timeout: 30000
+      connection-test-query: select 1 from dual
+  jpa:
+    database: mysql
+    show-sql: false
+  #邮件
+  mail:
+    host: smtp.16801.com
+    port: 25
+    username: thai-support@16801.com
+    password: 3a3d7d00gDN0Hdvj
+    default-encoding: utf-8
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: UTF-8
+    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+facebook:
+  access-token:
+    verify-url: https://graph.facebook.com/debug_token
+    get-token-url: https://graph.facebook.com/oauth/accessToken
+google:
+  user-login:
+    enable-verify: false
+chujian:
+  main-account: email
+  send-email:
+    forget-password:
+      theme: กู้คืนรหัสFirstmeet
+      expire-time: 30
+      base-path: https://test.hwtg.16801.com:8443
+  password:
+    enable-encode: true
+  visitor:
+    enable: true
+    username-prefix:
+  channel-user-login:
+    enable-verify: false
+  token:
+    key:
+      jks-filepath: chujian.jks
+      password: password
+      alias: chujian
+      public-key-string: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB
