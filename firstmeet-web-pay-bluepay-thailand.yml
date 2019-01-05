@@ -4,8 +4,8 @@ server:
     key-store-password: chujian
     keyStoreType: PKCS12
     keyAlias: 1
-  port: 8449
-  http-port: 8089
+  port: 8443
+  http-port: 8080
   servlet:
     application-display-name: firstmeet-web-pay-bluepay
     contextPath: /
@@ -32,8 +32,8 @@ facebook.callbackUrl: ''
 chujian.clientId: 'thtg'
 chujian.clientSecret: 'thtg'
 
-chujian.usercenter.url : 'http://127.0.0.1:8080'
-chujian.paycenter.url: 'http://127.0.0.1:8081'
+chujian.usercenter.url : 'http://usercenter:8080'
+chujian.paycenter.url: 'http://paycenter:8080'
 chujian.gameinfocenter.url: 'http://150.109.167.167:8848'
 
 chujian.user.me.url: '${chujian.usercenter.url}/user/me'

@@ -4,8 +4,8 @@ server:
     key-store-password: chujian
     keyStoreType: PKCS12
     keyAlias: 1
-  port: 8446
-  http-port: 8082
+  port: 8443
+  http-port: 8080
   servlet:
     application-display-name: firstmeet-mservice-mta-track
     contextPath: /
