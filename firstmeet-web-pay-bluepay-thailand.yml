@@ -32,8 +32,8 @@ facebook.callbackUrl: ''
 chujian.clientId: 'thtg'
 chujian.clientSecret: 'thtg'
 
-chujian.usercenter.url : 'http://usercenter:8080'
-chujian.paycenter.url: 'http://paycenter:8080'
+chujian.usercenter.url : 'http://usercenter.ups.firstmeet:8080'
+chujian.paycenter.url: 'http://paycenter.ups.firstmeet:8080'
 chujian.gameinfocenter.url: 'http://150.109.167.167:8848'
 
 chujian.user.me.url: '${chujian.usercenter.url}/user/me'
