@@ -13,7 +13,7 @@ server:
     basedir: "./"
     accesslog:
       enabled: true
-      directory: "./logs/access-log"
+      directory: ${firstmeet.mservice.data.basedir:.}/logs/firstmeet-mservice-gameinfo/access-log
     customized.enable: true
     accept-count: 200
     max-threads: 200

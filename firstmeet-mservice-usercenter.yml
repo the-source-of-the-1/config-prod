@@ -1,3 +1,8 @@
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-usercenter/access-log
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

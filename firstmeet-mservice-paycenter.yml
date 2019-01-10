@@ -13,7 +13,7 @@ server:
     basedir: "./"
     accesslog:
       enabled: true
-      directory: "./logs/access-log"
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-paycenter/access-log
     customized.enable: true
     customized.accept-count: 100
     customized.max-threads: 200
@@ -102,11 +102,12 @@ gameserver.shipping.clients:
     interval: 5000
 
 chujian:
-   token:
-     key:
-       public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
-   mta:
-     log:
-       enable: true
-   uid:
-     enable: true
+  token:
+    key:
+      public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
+  mta:
+    log:
+      enable: true
+      path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-paycenter/mta-log
+  uid:
+    enable: true
