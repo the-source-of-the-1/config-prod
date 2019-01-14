@@ -55,7 +55,7 @@ chujian:
     forget-password:
       theme: กู้คืนรหัสFirstmeet
       expire-time: 30
-      base-path: https://test.hwtg.16801.com:8443
+      base-path: https://ups.firstmeetgame.com/usercenter
   password:
     enable-encode: true
   visitor:
