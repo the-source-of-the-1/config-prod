@@ -10,22 +10,25 @@ server:
     application-display-name: firstmeet-mservice-shoppecenter
     contextPath: /
   tomcat:
-      basedir: "./"
-      accesslog:
-        enabled: true
-        directory: "./logs/access-log"
-      customized.enable: true
-      accept-count: 200
-      max-threads: 200
-      min-spare-threads: 50
-      max-connections: 10000
+    basedir: "./"
+    accesslog:
+      enabled: true
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-shoppecenter/access-log
+    customized.enable: true
+    customized.accept-count: 100
+    customized.max-threads: 200
+    customized.min-spare-threads: 25
+    customized.max-connections: 10000
+    customized.connection-timeout: 2000
+    manager.enable: false
+    manager.context-path: '/data/webapps/manager'
 
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     platform: mysql
-    url: jdbc:mysql://10.201.0.8:3306/shoppe_center?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://10.201.0.8:3306/shoppe_center?useSSL=false&useUnicode=true&characterEncoding=utf-8&autoReconnect=true
     username: root
     password: xqKKZ5xS%m!V^2pc
     druid:
@@ -49,7 +52,7 @@ spring:
         format_sql: true
   jackson:
     serialization:
-      indent_output: true
+      indent_output: false
 
 management:
   endpoints:
@@ -58,9 +61,8 @@ management:
         include: '*'
 
 chujian:
-   token:
-     key:
-       public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
-   uid:
-     enable: true
-
+  token:
+    key:
+      public-key-string: 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlTulF2dCQQiU4jkQMQHth084/OZcLFGkse6BQ0J5u47TOJ7PGPMAX1iqCrCwgbseDNLjMMpxLuX4ULbpjFrD/FN1uKmXEVwdP9zYCv22hE618XU6j3u0OEfsgZrupv9+lALxGZKyDfDRsjEy5KCXekAOiXDxJEUl/pNYla8MoJ5D9zjjUzUVq8i3pdL42sP9z6LKhtQXtzOiQ22zGST3mMzButpYXK55LHlgqYXb9hjBbcVIsZYP07Q4mt+NlT+x4crYp4Hirjl9rbUmQm7ZoL3GR8ErJnipPqOo7uKCAmwjKnBoRSu5836gG6kLOiSHtCdu8hp96G8sS95oWorflwIDAQAB'
+  uid:
+    enable: true

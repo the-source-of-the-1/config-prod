@@ -15,7 +15,7 @@ server:
     basedir: "./"
     accesslog:
       enabled: true
-      directory: "./logs/access-log"
+      directory: ${firstmeet.mservice.data.basedir:.}/logs/firstmeet-web-pay-bluepay/access-log
     customized.enable: true
     customized.accept-count: 100
     customized.max-threads: 200
