@@ -13,7 +13,7 @@ server:
     basedir: "./"
     accesslog:
       enabled: true
-      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-shoppecenter/access-log
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
     customized.enable: true
     customized.accept-count: 100
     customized.max-threads: 200
@@ -45,11 +45,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
-        show_sql: true
-        format_sql: true
+        show_sql: false
+        format_sql: false
   jackson:
     serialization:
       indent_output: false

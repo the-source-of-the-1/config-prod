@@ -13,7 +13,7 @@ server:
     basedir: "./"
     accesslog:
       enabled: true
-      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-mta-track/access-log
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
     customized.enable: true
     customized.accept-count: 100
     customized.max-threads: 200

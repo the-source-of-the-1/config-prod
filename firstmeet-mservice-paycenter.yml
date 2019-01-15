@@ -13,7 +13,7 @@ server:
     basedir: "./"
     accesslog:
       enabled: true
-      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-paycenter/access-log
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
     customized.enable: true
     customized.accept-count: 100
     customized.max-threads: 200
@@ -45,7 +45,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         show_sql: false
@@ -72,9 +72,10 @@ googlepay:
 
 applepay:
   order.checkOn: true
-  querytrans.detail.url: 'https://buy.itunes.apple.com/verifyReceipt'
+  querytrans.sandbox.url: 'https://sandbox.itunes.apple.com/verifyReceipt'
+  querytrans.online.url: 'https://buy.itunes.apple.com/verifyReceipt'
 
-paycenter.host.url: 'http://127.0.0.1:8081'
+paycenter.host.url: 'http://127.0.0.1:8080'
 
 order.get.url: '${paycenter.host.url}/orders/{order_id}'
 orders.get.url: '${paycenter.host.url}/orders/ids'
@@ -93,7 +94,7 @@ orders.get.urls:
 
 order.notify.shipping.url: '${paycenter.host.url}/shipping/deliverynotes/notify'
 
-shoppe.variants.get.url: 'http://127.0.0.1:8083/shoppes/{shoppe_id}/variants'
+shoppe.variants.get.url: 'http://shoppecenter.ups.firstmeet:8080/shoppes/{shoppe_id}/variants'
 
 gameserver.shipping.clients:
   default:
@@ -108,6 +109,6 @@ chujian:
   mta:
     log:
       enable: true
-      path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-paycenter/mta-log
+      path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/mta-log
   uid:
     enable: true

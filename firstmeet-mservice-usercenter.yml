@@ -2,7 +2,7 @@ server:
   tomcat:
     accesslog:
       enabled: true
-      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-usercenter/access-log
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
 spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

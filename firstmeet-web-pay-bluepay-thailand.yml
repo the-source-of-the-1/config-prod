@@ -15,7 +15,7 @@ server:
     basedir: "./"
     accesslog:
       enabled: true
-      directory: ${firstmeet.mservice.data.basedir:.}/logs/firstmeet-web-pay-bluepay/access-log
+      directory: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/access-log
     customized.enable: true
     customized.accept-count: 100
     customized.max-threads: 200
@@ -27,13 +27,13 @@ server:
 
 facebook.appId: '397359414136334'
 facebook.appSecret: '99af8ada4d54aa411af6f41d2c85f996'
-facebook.callbackUrl: ''
+facebook.callbackUrl: 'https://recharge-agmth.firstmeetgame.com'
 
 chujian.clientId: 'thtg'
 chujian.clientSecret: 'thtg'
 
-chujian.usercenter.url : 'http://usercenter.ups.firstmeet:8080'
-chujian.paycenter.url: 'http://paycenter.ups.firstmeet:8080'
+chujian.usercenter.url : 'https://ups.firstmeetgame.com/usercenter'
+chujian.paycenter.url: 'https://ups.firstmeetgame.com/paycenter'
 chujian.gameinfocenter.url: 'http://150.109.167.167:8848'
 
 chujian.user.me.url: '${chujian.usercenter.url}/user/me'
@@ -68,7 +68,7 @@ spring.resources.chain.strategy.content.paths: /**
 spring:
   jackson:
     serialization:
-      indent_output: true
+      indent_output: false
   messages:
     basename: i18n.messages
 
