@@ -109,6 +109,6 @@ chujian:
   mta:
     log:
       enable: true
-      path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/firstmeet-mservice-paycenter/mta-log
+      path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/mta-log
   uid:
     enable: true
