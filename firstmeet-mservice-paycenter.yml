@@ -112,3 +112,7 @@ chujian:
       path: ${FIRSTMEET_MSERVICE_DATA_BASEDIR:.}/logs/${HOSTNAME:1}/mta-log
   uid:
     enable: true
+health:
+  config:
+    enabled: true
+    time-to-live: 86400000

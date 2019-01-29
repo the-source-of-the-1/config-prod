@@ -77,3 +77,7 @@ management:
     web:
       exposure:
         include: '*'
+health:
+  config:
+    enabled: true
+    time-to-live: 86400000

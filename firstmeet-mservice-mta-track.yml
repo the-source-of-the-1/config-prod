@@ -49,3 +49,7 @@ mta.setting:
       - 'SplashStartRequestedEvent'
 
 event.rule.path: 'classpath*:rules/**/*.drl' #可以配置绝对路径: file:/data/mta/rules/**/*.drl
+health:
+  config:
+    enabled: true
+    time-to-live: 86400000
